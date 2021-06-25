@@ -6,7 +6,7 @@ Created on Wed Jun  2 18:47:40 2021
 """
 import pandas as pd
 
-df=pd.read_csv('data.csv')
+df=pd.read_csv('data1.csv')
 
 #Salary Parsing
 df=df[df['Salary Estimate']!='-1']
@@ -57,3 +57,9 @@ df.AWS.value_counts()
 #SPARK
 df['Spark']=df['Job Description'].apply(lambda x: 1 if 'spark' in x.lower() else 0)
 df.Spark.value_counts()
+
+#Dropping irrelevant columns
+df_clean=df
+df_clean.to_csv('cleaned_data.csv', index=False)
+
+
